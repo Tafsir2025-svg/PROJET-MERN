@@ -1,0 +1,26 @@
+/* src/styles/Delivery.css */
+.delivery {
+  background-color: #140ece;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #faf8f8;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.delivery h2 {
+  text-align: center;
+  color: #faf8f8;
+}
+
+.delivery ul {
+  list-style-type: none;
+  padding: 0;
+  color: #faf8f8;
+}
+
+.delivery li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #faf8f8;
+}

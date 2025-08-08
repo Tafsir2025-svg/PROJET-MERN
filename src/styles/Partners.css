@@ -1,0 +1,17 @@
+/* src/styles/Partners.css */
+.partners {
+  text-align: center;
+  padding: 20px;
+}
+
+.partners-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}

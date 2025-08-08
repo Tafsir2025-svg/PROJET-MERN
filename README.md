@@ -1,130 +1,70 @@
-# MERN Project – Frontend + Backend (Client/Server)
+# Getting Started with Create React App
 
-Ce projet est une application MERN complète (MongoDB, Express.js, React.js, Node.js) prête à l'emploi avec une configuration simple pour le développement et le déploiement.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
+## Available Scripts
 
-## 🧱 Structure du projet
+In the project directory, you can run:
 
-```
-mern-project-final/
-├── client/       # Frontend React avec Vite
-├── server/       # Backend Node.js + Express + MongoDB
-├── package.json  # Script racine pour lancer les deux projets
-```
+### `npm start`
 
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 🚀 Lancer le projet en local
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### 1. Prérequis
+### `npm test`
 
-- Node.js v18+ recommandé
-- MongoDB local ou MongoDB Atlas (cloud)
-- npm installé globalement
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-### 2. Installation
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Dans le terminal :
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-git clone <ce dépôt>
-cd mern-project-final
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# Installer les dépendances racine + client + serveur
-npm install
-cd client && npm install
-cd ../server && npm install
-cd ..
-```
+### `npm run eject`
 
----
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 3. Configuration de l’environnement
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Crée un fichier `.env` dans `server/` :
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-```
-PORT=4000
-MONGO_URI=mongodb://localhost:27017/mern_db
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-⚠️ Si tu utilises MongoDB Atlas, remplace `MONGO_URI` par l'URL fournie dans ton tableau de bord Atlas.
+## Learn More
 
----
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### 4. Démarrage
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```bash
-npm run dev
-```
+### Code Splitting
 
-- Frontend accessible via : [http://localhost:5173](http://localhost:5173)
-- Backend API via : [http://localhost:4000/api](http://localhost:4000/api)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
----
+### Analyzing the Bundle Size
 
-## 🌐 Déploiement
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Backend (Render)
+### Making a Progressive Web App
 
-1. Crée un nouveau service sur [Render.com](https://render.com/)
-2. Connecte ton dépôt GitHub
-3. Ajoute les variables d’environnement :
-   - `PORT=4000`
-   - `MONGO_URI` (URI MongoDB Atlas)
-4. Commande de démarrage :
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-```bash
-npm install && npm run start
-```
+### Advanced Configuration
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Frontend (Vercel)
+### Deployment
 
-1. Va sur [Vercel](https://vercel.com)
-2. Importer ton dépôt GitHub
-3. Ajouter la variable `VITE_API_URL` pointant vers l'URL Render du backend :
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-```
-VITE_API_URL=https://mon-backend.onrender.com/api
-```
+### `npm run build` fails to minify
 
----
-
-## 📂 Routes API
-
-```
-GET    /api/products
-POST   /api/products
-PATCH  /api/products/:id
-DELETE /api/products/:id
-```
-
----
-
-## ✅ Fonctions incluses
-
-- CRUD produits
-- Pagination + recherche
-- Modales, toasts, formulaire contrôlé
-- UI responsive en CSS natif
-- Contexte React pour centraliser les données
-
----
-
-## 🧪 À venir (extensions possibles)
-
-- Authentification JWT
-- Tests (Jest, Vitest)
-- Docker + docker-compose
-- Upload images (Cloudinary)
-
----
-
-## 👤 Auteur
-
-Projet MERN généré automatiquement par ChatGPT pour [@comptechatgpt2027](mailto:comptechatgpt2027@gmail.com)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

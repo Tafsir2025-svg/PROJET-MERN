@@ -1,0 +1,104 @@
+import React, { useState } from 'react';
+
+const AuthPage = ({ onSuccess }) => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url = isLogin ? 'http://localhost:5000/api/login' : 'http://localhost:5000/api/register';
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || 'Erreur lors de la requête');
+        return;
+      }
+
+      if (isLogin) {
+        localStorage.setItem('token', data.token);
+        onSuccess();
+      } else {
+        alert('Inscription réussie, veuillez vous connecter');
+        setIsLogin(true);
+      }
+    } catch (err) {
+      setError('Erreur serveur');
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-6">{isLogin ? 'Se connecter' : "S'inscrire"}</h2>
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-gray-600 mb-1">Nom d'utilisateur</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              className="w-full border rounded px-3 py-2"
+            />
+          </div>
+          {!isLogin && (
+            <div>
+              <label className="block text-gray-600 mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border rounded px-3 py-2"
+              />
+            </div>
+          )}
+          <div>
+            <label className="block text-gray-600 mb-1">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full border rounded px-3 py-2"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          >
+            {isLogin ? 'Se connecter' : "S'inscrire"}
+          </button>
+        </form>
+        <p className="mt-4 text-center text-gray-600">
+          {isLogin ? "Pas encore de compte ?" : "Déjà inscrit ?"}
+          <button
+            className="text-blue-500 ml-2 hover:underline"
+            onClick={() => { setIsLogin(!isLogin); setError(''); }}
+          >
+            {isLogin ? "S'inscrire" : 'Se connecter'}
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default AuthPage;
